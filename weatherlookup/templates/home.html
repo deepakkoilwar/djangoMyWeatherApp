@@ -2,10 +2,20 @@
 
 {% block Content %}
 
-<h1>Hi Deepshi !!</h1>
+<h1>Weather Data</h1>
 <br/>
 
-{{ api }}
+<!-- {{ api }} <br/> -->
+Location : {{ api.resolvedAddress }} <br/>
+<!-- Description : {{ api.description }} -->
+Day : {{ api.days.0.datetime }} <br/>
+Min Temp : {{ api.days.0.tempmin }} <br/>
+Max Temp : {{ api.days.0.tempmax }} <br/>
+Visibility : {{ api.days.0.visibility }} <br/>
+Cloud Cover : {{ api.days.0.cloudcover }} <br/>
+Description : {{ api.days.0.description }} <br/>
+<!-- Icon : {{ api.days.0.icon }} <br/> -->
+
 
 
 {% endblock %}
