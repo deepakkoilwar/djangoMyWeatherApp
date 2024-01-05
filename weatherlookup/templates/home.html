@@ -2,54 +2,60 @@
 
 {% block Content %}
 
-<div class="container-fluid">
+{% if api %}
 
-    <div class="row">
+    {% if api == "Error..." %}
 
-        <div class="col p-3 text-primary-emphasis bg-info-subtle border border-primary-subtle rounded-3"><h2>Day's Weather Data</h2>
-            <br/>
+        There Was and Error , Try Again ... 
 
-            <!-- {{ api }} <br/> -->
-            Location : {{ api.resolvedAddress }} <br/>
-            <!-- Description : {{ api.description }} -->
-            Day : {{ api.days.0.datetime }} <br/>
-            Day's Min Temp : {{ api.days.0.tempmin }} <br/>
-            Day's Max Temp : {{ api.days.0.tempmax }} <br/>
-            Day's Visibility : {{ api.days.0.visibility }} <br/>
-            Day's Cloud Cover : {{ api.days.0.cloudcover }} <br/>
-            Description : {{ api.days.0.description }} <br/>
-            <!-- Icon : {{ api.days.0.icon }} <br/> -->
+    {% else %}
+        <div class="container-fluid">
+
+            <div class="row">
+        
+                <div class="col p-3 text-primary-emphasis bg-info-subtle border border-primary-subtle rounded-3"><h2>Day's Weather Data</h2>
+                    <br/>
+        
+                    <!-- {{ api }} <br/> -->
+                    Location : {{ api.resolvedAddress }} <br/>
+                    <!-- Description : {{ api.description }} -->
+                    Day : {{ api.days.0.datetime }} <br/>
+                    Day's Min Temp : {{ api.days.0.tempmin }} <br/>
+                    Day's Max Temp : {{ api.days.0.tempmax }} <br/>
+                    Day's Visibility : {{ api.days.0.visibility }} <br/>
+                    Day's Cloud Cover : {{ api.days.0.cloudcover }} <br/>
+                    Description : {{ api.days.0.description }} <br/>
+                    <!-- Icon : {{ api.days.0.icon }} <br/> -->
+                </div>
+                            
+        
+                <div class="col p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"><h2>Current Weather Data</h2>
+                    <br/>
+        
+                    <!-- {{ api }} <br/> -->
+                    Location : {{ api.resolvedAddress }} <br/>
+                    <!-- Description : {{ api.description }} -->
+                    Day : {{ api.days.0.datetime }} <br/>
+                    Time : {{ api.currentConditions.datetime }} <br/>
+                    Temperature : {{ api.currentConditions.temp }} <br/>
+                    Humidity : {{ api.currentConditions.humidity }} <br/>
+                    Wind Speed : {{ api.currentConditions.windspeed }} <br/>
+                    Visibility : {{ api.currentConditions.visibility }} <br/>
+                    Cloudcover : {{ api.currentConditions.cloudcover }} <br/>
+                    Conditions : {{ api.currentConditions.conditions }} <br/>
+                
+                    <!-- Icon : {{ api.days.0.icon }} <br/> --></div>
+        
+        
+        
+            </div>
+             
+        
+        
         </div>
-                    
-
-        <div class="col p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"><h2>Current Weather Data</h2>
-            <br/>
-
-            <!-- {{ api }} <br/> -->
-            Location : {{ api.resolvedAddress }} <br/>
-            <!-- Description : {{ api.description }} -->
-            Day : {{ api.days.0.datetime }} <br/>
-            Time : {{ api.currentConditions.datetime }} <br/>
-            Temperature : {{ api.currentConditions.temp }} <br/>
-            Humidity : {{ api.currentConditions.humidity }} <br/>
-            Wind Speed : {{ api.currentConditions.windspeed }} <br/>
-            Visibility : {{ api.currentConditions.visibility }} <br/>
-            Cloudcover : {{ api.currentConditions.cloudcover }} <br/>
-            Conditions : {{ api.currentConditions.conditions }} <br/>
-          
-            <!-- Icon : {{ api.days.0.icon }} <br/> --></div>
+    {% endif %}
 
 
-
-    </div>
-
-
-
-
-</div>
-
-
-
-
+{% endif %}
 
 {% endblock %}

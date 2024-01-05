@@ -1,4 +1,4 @@
-#Deepak Loves Shivani
+
 from django.urls import path 
 from . import views
 
